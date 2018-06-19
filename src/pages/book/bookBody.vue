@@ -111,7 +111,6 @@ export default {
       handleChange(value) {
         console.log(value);
       },
-
     }
 }
 </script>
@@ -122,8 +121,8 @@ export default {
     background-color: #CCFFCC
   }
   .comment {
-    width:1200px;
-    height:800px;
+    width:100%;
+    height:100%;
     background-color: #CCFFCC
   }
   .bookbody {

@@ -15,10 +15,9 @@ const page401 = () => import('@/pages/other/page401')
 const page404 = () => import('@/pages/other/page404')
 const realbook = () => import('@/pages/index/children/manyMenu/realbook')
 const ebook = () => import('@/pages/index/children/manyMenu/ebook')
-//  book
-const book = () => import('@/pages/book/book')
 
 const Person = () => import('@/pages/person/person')
+const bookBody = () => import('@/pages/book/bookBody')
 
 Vue.use(Router)
 
@@ -38,63 +37,75 @@ export const sideRoutes = [
         path: '/:id',
         component: home,
         redirect:'/index/realbook/主页',
-        meta: {
-            icon: 'el-icon-my-home',
-            title: '主页'
+        children:[
+          {
+              name : 'RealBook',
+              path : '/index/realbook/:id',
+              component:realbook,
+          },
+          {
+              name : 'Ebook',
+              path : '/index/ebook/:id',
+              component:ebook,
+          },
+          {
+              name: 'manyMenu',
+              path: 'manyMenu',
+              component: view,
+              redirect: '/index/manyMenu/example',
+              meta: {
+                  icon: 'el-icon-menu',
+                  title: '多级菜单',
+                  open: true
+              },
+              children: [
+                  {
+                      name: 'example',
+                      path: 'example',
+                      component: example,
+                      meta: {
+                          icon: 'el-icon-my-ravelry',
+                          title: '示例'
+                      }
+                  },
+                  {
+                      name: 'table',
+                      path: 'table',
+                      component: table,
+                      meta: {
+                          icon: 'el-icon-my-chart',
+                          title: '表格'
+                      }
+                  },
+                  {
+                      name: 'permission',
+                      path: 'permission',
+                      icon: 'el-icon-my-lock',
+                      meta: {
+                          icon: 'el-icon-my-lock',
+                          title: '权限测试',
+                          role: 'admin'
+                      },
+                      component: permission
+                  }
+              ]
+          }
+        ]
+    },
+    {
+        name:'person',
+        path:'/index/personcenter',
+        component:Person,
+        meta:{
+          login:true
         }
     },
     {
-        name : 'RealBook',
-        path : '/index/realbook/:id',
-        component:realbook,
+      name : 'bookBody',
+      path : '/index/bookBody',
+      component:bookBody,
     },
-    {
-        name : 'Ebook',
-        path : '/index/ebook/:id',
-        component:ebook,
-    },
-    {
-        name: 'manyMenu',
-        path: 'manyMenu',
-        component: view,
-        redirect: '/index/manyMenu/example',
-        meta: {
-            icon: 'el-icon-menu',
-            title: '多级菜单',
-            open: true
-        },
-        children: [
-            {
-                name: 'example',
-                path: 'example',
-                component: example,
-                meta: {
-                    icon: 'el-icon-my-ravelry',
-                    title: '示例'
-                }
-            },
-            {
-                name: 'table',
-                path: 'table',
-                component: table,
-                meta: {
-                    icon: 'el-icon-my-chart',
-                    title: '表格'
-                }
-            },
-            {
-                name: 'permission',
-                path: 'permission',
-                icon: 'el-icon-my-lock',
-                meta: {
-                    icon: 'el-icon-my-lock',
-                    title: '权限测试',
-                    role: 'admin'
-                },
-                component: permission
-            }
-        ]
-    }
+
 ]
 
 export default new Router({
@@ -112,14 +123,6 @@ export default new Router({
             children: sideRoutes
         },
         {
-            name:'person',
-            path:'/index/personcenter',
-            component:Person,
-            meta:{
-              login:true
-            }
-        },
-        {
             name: '401',
             path: '/401',
             component: page401
@@ -132,11 +135,6 @@ export default new Router({
         {
             path: '*',
             redirect: '/404'
-        },
-        {
-            name : 'book',
-            path : '/index/book',
-            component:book,
         }
     ],
     scrollBehavior(to, from, savedPosition) {

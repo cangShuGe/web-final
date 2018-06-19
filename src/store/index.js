@@ -17,10 +17,10 @@ const state = {
         'credit':223
     }, // 用户信息
     useronline:true,
-    kinds:{xuanhuan:'玄幻',xiuzhen:'修真',mingzhu:'古典名著'},
+    kinds:{xuanhuan:'玄幻',xiuzhen:'修真',mingzhu:'名著'},
     Ebook:{'id':'001','kind':'woshuisf'},
     realBook:{'id':'001','kind':'sdjfsldjf'},
-
+    
     url1:'static/img/hongloumeng.jpg',
     url2:'static/img/piao.jpg',
     url3:'static/img/shuihuzhuan.jpg',
@@ -65,19 +65,7 @@ const mutations = {
     set_user_online(state,value){
         // console.log(value)
         state.useronline=value
-    },
-    set_url1(state,value){
-        state.url1=value
-    },
-    set_url2(state,value){
-        state.url2=value
-    },
-    set_url3(state,value){
-        state.url3=value
-    },
-    set_url4(state,value){
-        state.url4=value
-    },
+    }
 }
 
 const actions = {

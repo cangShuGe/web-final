@@ -3,16 +3,11 @@
         <el-container id="verContainer" direction="vertical">
             <!-- header -->
             <my-header></my-header>
-            <el-container id="horContainer" direction="horizontal">
-                <!-- Side> -->
-                <my-side></my-side>
-                <!-- Main -->
-                <el-main id="main">
-                    <transition name="el-fade-in-linear" mode="out-in">
-                        <router-view></router-view>
-                    </transition>
-                </el-main>
-            </el-container>
+            <!-- <el-main id="main"> -->
+              <!-- <transition name="el-fade-in-linear" mode="out-in"> -->
+                  <router-view></router-view>
+              <!-- </transition> -->
+          <!-- </el-main> -->
         </el-container>
     </div>
 </template>

@@ -31,7 +31,6 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import cookie from '@/cookie/cookie'
 export default {
     name: 'menuItem',
     data(){
@@ -67,12 +66,9 @@ export default {
 
         },
         choseBook(id,name){
-            this.$store.commit('set_url1','static/img/huozhe.jpg')
-            /*let ebook = new Array(id,name)
-            this.$store.commit('set_Ebook',ebook)*/
+            let ebook = new Array(id,name)
+            this.$store.commit('set_Ebook',ebook)
             this.$router.push({path:'/index/ebook/'+name})
-           // this.$router.go(0)//----刷新页面了
-            
         },
         choseRealBook(name,id){
             let real = new Array(id,name)

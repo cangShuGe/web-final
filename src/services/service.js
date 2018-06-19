@@ -3,7 +3,6 @@ import {} from '@/store/index'
 import router from '@/router/index'
 import store from '@/store/index'
 import cookie from '@/cookie/cookie'
-import VueResource from 'vue-resource'
 import {Message} from 'element-ui'
 
 export default class Connect{
@@ -32,8 +31,9 @@ export default class Connect{
         if(resp.data.status){
           cookie.setToken('useronline',true)
           store.commit('set_user_online',true)
-          //window.alert('登陆成功')
-          Message.success("恭喜你，"+form.username+"登陆成功！")
+          //Message.success('登陆成功')
+          window.alert('登陆成功')
+          
           this.findPersonMessage(form.username)
         }else{
           cookie.setToken('useronline',false)
@@ -188,6 +188,10 @@ export default class Connect{
       },resp=>{
 
       })
+    }
+
+    downloadEbook(data){
+      return '123456@qq.com'
     }
 
 }

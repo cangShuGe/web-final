@@ -1,8 +1,8 @@
 <template>
     <div id="card">
         <el-row  :gutter="20">
-            <el-col :span="3" :offset="2" v-for="(item,index) in list" :key="index" >
-                <div class="grid-content bg-purple">
+            <el-col :span="6" v-for="(item,index) in list" :key="index" >
+                <div @click="ChangeView" class="grid-content bg-purple">
                     <img :src="item.icon" alt="书籍封面">
                     <div style="padding: 14px; text-align: center">
                         <span>{{item.title}}</span>
@@ -36,17 +36,22 @@ export default {
                 }
             ]
         }
+    },
+    methods:{
+      ChangeView(){
+        this.$router.push({name : 'bookBody'})
+      }
     }
 }
 </script>
 <style>
   .grid-content {
-    width:250px;
-    height: 150px;
+    border-radius: 4px;
+    min-height: 36px;
   }
   .grid-content img{
-    width:250px;
-    height: 150px;
+    width:100%;
+    height: 100%;
   }
 </style>
 <style lang='stylus'>

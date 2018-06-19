@@ -1,12 +1,9 @@
 <template>
     <div id="person">
-        <my-header></my-header>
         <el-main>
-
           <el-row>
             <el-col :span="4">
                 <div class="grid-content">
-
                 </div>
             </el-col>
             <el-col :span="12">
@@ -444,7 +441,9 @@ export default {
     },
     methods:{
       downloadEbook(index,row){
+        let connect = new Connect()
 
+        this.formInline.email = connect.downloadEbook()
       },
       sumMoney(){
         if(this.choiceChose.length == 0){
