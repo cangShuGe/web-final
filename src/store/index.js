@@ -24,7 +24,12 @@ const state = {
     url1:'static/img/hongloumeng.jpg',
     url2:'static/img/piao.jpg',
     url3:'static/img/shuihuzhuan.jpg',
-    url4:'static/img/huozhe.jpg' //存储主页图片路径 使用require获取图片真实地址
+    url4:'static/img/huozhe.jpg', //存储主页图片路径 使用require获取图片真实地址
+
+    imgname1:'红楼梦',
+    imgname2:'漂',
+    imgname3:'水浒传',
+    imgname4:'活着'
 }
 
 const getters = {
@@ -65,7 +70,26 @@ const mutations = {
     set_user_online(state,value){
         // console.log(value)
         state.useronline=value
+    },
+
+    set_url1(state,value,value1){
+        state.url1 = value;
+        state.imgname1 = value1;
+    },
+    set_url2(state,value,value1){
+        state.url2 = value;
+        state.imgname2 = value1;
+    },
+    set_url3(state,value,value1){
+        state.url3 = value;
+        state.imgname3 = value1;
+    },
+    set_url4(state,value,value1){
+        state.url4 = value;
+        state.imgname4 = value1;
     }
+
+
 }
 
 const actions = {

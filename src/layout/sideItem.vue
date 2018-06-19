@@ -66,9 +66,14 @@ export default {
 
         },
         choseBook(id,name){
-            let ebook = new Array(id,name)
+            /*let ebook = new Array(id,name)
             this.$store.commit('set_Ebook',ebook)
-            this.$router.push({path:'/index/ebook/'+name})
+            this.$router.push({path:'/index/ebook/'+name})*/
+            this.$store.commit('set_url1','static/img/huozhe.jpg','活着')
+            this.$store.commit('set_url2','static/img/life.jpg','生活')
+            this.$store.commit('set_url3','static/img/school.jpg','school')
+            this.$store.commit('set_url4','static/img/pinang.jpg','皮囊')
+            this.$router.push({path:'/index/ebook/'+name}) //将路径区分
         },
         choseRealBook(name,id){
             let real = new Array(id,name)

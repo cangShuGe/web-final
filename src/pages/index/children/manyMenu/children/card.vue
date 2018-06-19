@@ -10,6 +10,21 @@
                 </div>
             </el-col>
         </el-row>
+
+<br>
+<br>
+        <!--<el-row  :gutter="20">
+            <el-col :span="6" v-for="(item,index) in list" :key="index" >
+                <div @click="ChangeView" class="grid-content bg-purple">
+                    <img :src="item.icon" alt="书籍封面">
+                    <div style="padding: 14px; text-align: center">
+                        <span>{{item.title}}</span>
+                    </div>
+                </div>
+            </el-col>
+        </el-row>-->
+
+
     </div>
 </template>
 <script>
@@ -20,19 +35,19 @@ export default {
             list: [
                 {
                     icon: this.$store.state.url1,
-                    title: '红楼梦'
+                    title: this.$store.state.imgname1,
                 },
                 {
                     icon: this.$store.state.url2,
-                    title: '漂',
+                    title: this.$store.state.imgname2,
                 },
                 {
                     icon: this.$store.state.url3,
-                    title: '水浒传',
+                    title: this.$store.state.imgname3,
                 },
                 {
                     icon: this.$store.state.url4,
-                    title: '活着',
+                    title: this.$store.state.imgname4,
                 }
             ]
         }
@@ -46,12 +61,12 @@ export default {
 </script>
 <style>
   .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+    width:250px;
+    height: 150px;
   }
   .grid-content img{
-    width:100%;
-    height: 100%;
+    width:250px;
+    height: 150px;
   }
 </style>
 <style lang='stylus'>
